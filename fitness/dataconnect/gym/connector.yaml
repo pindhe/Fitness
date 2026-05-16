@@ -1,0 +1,5 @@
+connectorId: "gym"
+generate:
+  dartSdk:
+    outputDir: "../fitness/lib/generated"
+    package: "gym_dataconnect"

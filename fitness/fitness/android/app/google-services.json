@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "576167959403",
+    "project_id": "gym-atu",
+    "storage_bucket": "gym-atu.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576167959403:android:48ae2127bc8673cf76ca2e",
+        "android_client_info": {
+          "package_name": "com.example.fitness"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-mrvPiC--iDZkb-h5lp-q-l4oXZTfx6U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "fitpulse-flutter-transition",
+  "version": "1.0.0",
+  "description": "Transitioned to Flutter Mobile. Use 'DOCS_TRANSITION.md' for instructions.",
+  "scripts": {
+    "start": "node -e \"const http = require('http'); http.createServer((req, res) => { res.writeHead(200, {'Content-Type': 'text/html'}); res.end('<h1>FitPulse: Flutter Migration in Progress</h1><p>The application has been migrated from React to <b>Flutter</b>.</p><p>Check the <b>lib/</b> directory for the Dart source code.</p><p>Install Flutter SDK locally to run on Android/iOS/Web.</p>'); }).listen(3000); console.log('Transition info server running on port 3000');\"",
+    "build": "echo 'Building Flutter codebase (simulated)...'",
+    "lint": "echo 'Linting Flutter codebase (simulated)...'"
+  },
+  "dependencies": {
+    "@dataconnect/generated": "file:src/dataconnect-generated"
+  },
+  "type": "module"
+}

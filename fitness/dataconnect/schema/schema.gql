@@ -1,0 +1,55 @@
+# Gym Data Connect Schema
+
+type User @table(name: "Users", key: ["id"]) {
+  id: String! # This should be the Firebase Auth UID
+  name: String!
+  email: String!
+  role: String! # admin, trainer, member
+  joinedAt: Timestamp! @default(expr: "request.time")
+  phone: String
+  gender: String
+  profileImage: String
+  status: String @default(value: "active")
+    
+  # Relationship to Membership Plan
+  membershipPlan: MembershipPlan
+}
+
+type MembershipPlan @table(name: "MembershipPlans", key: ["id"]) {
+  id: UUID! @default(expr: "uuidV4()")
+  name: String!
+  price: Float!
+  billingCycle: String! # monthly, yearly
+  features: [String!]!
+  accentColor: String!
+  isActive: Boolean! @default(value: true)
+}
+
+type Workout @table(name: "Workouts", key: ["id"]) {
+  id: UUID! @default(expr: "uuidV4()")
+  title: String!
+  description: String
+  level: String! # beginner, intermediate, advanced
+  category: String! # strength, cardio, etc
+  videoUrl: String
+  duration: Int # in minutes
+  caloriesBurn: Int
+  createdAt: Timestamp! @default(expr: "request.time")
+}
+
+type Attendance @table(name: "Attendance", key: ["id"]) {
+  id: UUID! @default(expr: "uuidV4()")
+  user: User!
+  timestamp: Timestamp! @default(expr: "request.time")
+  type: String! # IN, OUT
+  checkMethod: String! # QR, Manual
+}
+
+type Biometric @table(name: "Biometrics", key: ["id"]) {
+  id: UUID! @default(expr: "uuidV4()")
+  user: User!
+  weight: Float
+  bodyFat: Float
+  bmi: Float
+  recordedAt: Timestamp! @default(expr: "request.time")
+}

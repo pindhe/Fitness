@@ -1,0 +1,77 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default Deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      // Bootstrapped check for the specific admin email if applicable
+      // or check the userRoles collection.
+      // For pindhe flow, we check the userRoles collection.
+      return isSignedIn() && 
+        get(/databases/$(database)/documents/userRoles/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // User Roles
+    match /userRoles/{userId} {
+      allow read: if isSignedIn() && (isOwner(userId) || isAdmin());
+      // Allow users to initialize their own role as 'user'
+      // Or if their email is in the master admin list (bootstrapping)
+      allow create: if isSignedIn() && isOwner(userId) && (
+        request.resource.data.role == 'user' || 
+        request.auth.token.email in ['kharash420@gmail.com', 'hajipindhe@gmail.com']
+      );
+      allow update: if isAdmin();
+    }
+
+    // Exercises
+    match /exercises/{exerciseId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Protocols
+    match /protocols/{protocolId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Nutrition
+    match /nutrition/{mealId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // System Logs
+    match /systemLogs/{logId} {
+      allow read: if true;
+      allow create: if true;
+    }
+
+    // User Stats
+    match /userStats/{userId}/daily/{statId} {
+      allow read, write: if isOwner(userId);
+      allow delete: if isAdmin();
+    }
+
+    // User Workouts
+    match /userWorkouts/{userId}/sessions/{sessionId} {
+      allow read, write: if isOwner(userId);
+    }
+  }
+}

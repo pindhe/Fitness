@@ -1,0 +1,67 @@
+name: fitpulse_gym
+description: A new professional Gym and Fitness mobile application.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management
+  flutter_riverpod: ^3.1.0
+  riverpod_annotation: ^4.0.0
+  
+  # Navigation
+  go_router: ^17.2.3
+  
+  # Networking
+  dio: ^5.3.0
+  
+  # UI & Design
+  flutter_animate: ^4.2.0
+  lottie: ^3.3.3
+  cached_network_image: ^3.3.0
+  google_fonts: ^8.1.0
+  lucide_icons: any
+  glassmorphism_ui: any
+  
+  # Data Persistence
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.2.0
+  
+  # Charts
+  fl_chart: ^1.2.0
+  
+  # Authentication & Backend
+  firebase_core: ^4.9.0
+  firebase_auth: any
+  cloud_firestore: any
+  
+  # Localization
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  # Code Generation
+  riverpod_generator: ^4.0.0+1
+  build_runner: ^2.4.0
+  freezed: ^3.2.3
+  freezed_annotation: ^3.1.0
+  json_serializable: ^6.7.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/lottie/
+    - assets/fonts/

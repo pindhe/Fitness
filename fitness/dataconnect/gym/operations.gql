@@ -1,0 +1,20 @@
+# Mutations for User Management
+
+# Create a new user in the SQL database
+mutation CreateUser($id: String!, $name: String!, $email: String!, $role: String!) {
+  user_insert(data: {
+    id: $id,
+    name: $name,
+    email: $email,
+    role: $role
+  })
+}
+
+# Update user profile
+mutation UpdateUserProfile($id: String!, $name: String, $phone: String, $profileImage: String) {
+  user_update(id: $id, data: {
+    name: $name,
+    phone: $phone,
+    profileImage: $profileImage
+  })
+}

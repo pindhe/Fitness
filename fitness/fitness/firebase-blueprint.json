@@ -1,0 +1,95 @@
+{
+  "entities": {
+    "Exercise": {
+      "title": "Exercise",
+      "description": "A specific physical exercise with metadata.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "intensity": { "type": "string", "enum": ["Low", "Moderate", "High", "Critical"] },
+        "duration": { "type": "string" },
+        "calories": { "type": "number" },
+        "image": { "type": "string" },
+        "description": { "type": "string" },
+        "isPro": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "category", "intensity", "duration", "calories"]
+    },
+    "Protocol": {
+      "title": "Workout Protocol",
+      "description": "A collection of exercises forming a workout plan.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "duration": { "type": "string" },
+        "intensity": { "type": "string" },
+        "exercises": { "type": "array", "items": { "type": "string" } },
+        "image": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "exercises"]
+    },
+    "Nutrition": {
+      "title": "Meal Plan",
+      "description": "A nutrition item or meal suggestion.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "calories": { "type": "number" },
+        "protein": { "type": "number" },
+        "carbs": { "type": "number" },
+        "fat": { "type": "number" },
+        "type": { "type": "string", "enum": ["Breakfast", "Lunch", "Dinner", "Snack"] },
+        "image": { "type": "string" }
+      }
+    },
+    "UserStats": {
+      "title": "User Statistics",
+      "description": "Tracks daily metrics for a specific user.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "date": { "type": "string" },
+        "calories": { "type": "number" },
+        "workouts": { "type": "number" },
+        "hours": { "type": "number" },
+        "focusAt": { "type": "number" }
+      }
+    },
+    "UserRole": {
+      "title": "User Role",
+      "description": "Defines the role (admin/user) for a UID.",
+      "type": "object",
+      "properties": {
+        "role": { "type": "string", "enum": ["admin", "user"] },
+        "email": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/exercises": {
+      "schema": "Exercise",
+      "description": "Global exercise library managed by admin."
+    },
+    "/protocols": {
+      "schema": "Protocol",
+      "description": "Global workout protocols managed by admin."
+    },
+    "/nutrition": {
+      "schema": "Nutrition",
+      "description": "Meal suggestions managed by admin."
+    },
+    "/userStats/{userId}/daily": {
+      "schema": "UserStats",
+      "description": "Daily metrics for individual users."
+    },
+    "/userRoles/{userId}": {
+      "schema": "UserRole",
+      "description": "Permissions for users."
+    }
+  }
+}
