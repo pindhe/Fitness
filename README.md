@@ -1,22 +1,5 @@
 
 
-<p align="center">
-A modern fitness platform built for tracking workouts, managing users, and delivering a smooth cross-platform experience with a clean UI and scalable backend architecture.
-</p>
-
----
-
-
-## 🚀 Key Features
-
-- 👤 User Authentication & Profiles  
-- 🏋️ Workout Plans & Exercise Tracking  
-- 📊 Progress Monitoring Dashboard  
-- 🍎 Nutrition / Fitness Data Management  
-- 🔔 Notifications & Reminders System  
-- ☁️ Cloud Sync (Firebase Integration)  
-- 📱 Responsive Mobile + Web Experience  
-
 ---
 
 ## 🧠 Project Overview
