@@ -6,18 +6,6 @@ A modern fitness platform built for tracking workouts, managing users, and deliv
 
 ---
 
-## ⚙️ Tech Stack
-
-<p align="center">
-
-- 📱 Frontend: Flutter (Mobile App UI)
-- 🎨 Styling: Tailwind CSS (Web Dashboard / UI System)
-- 🔥 Backend: Firebase (Auth, Firestore, Storage)
-- 🗄️ Database: SQL (Structured Data Management)
-
-</p>
-
----
 
 ## 🚀 Key Features
 
