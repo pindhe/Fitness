@@ -1,8 +1,4 @@
-<div align="center">
 
-# 🏋️ Fitness App
-
-</div>
 
 <p align="center">
 A modern fitness platform built for tracking workouts, managing users, and delivering a smooth cross-platform experience with a clean UI and scalable backend architecture.
