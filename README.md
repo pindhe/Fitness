@@ -1,20 +1,5 @@
 
 
----
-
-## 🧠 Project Overview
-
-This system is designed to combine **mobile fitness tracking (Flutter)** with a **powerful backend (Firebase + SQL)** and a **modern UI system (Tailwind CSS)**.
-
-It focuses on:
-- Performance ⚡  
-- Clean UI/UX 🎨  
-- Scalable architecture 🏗️  
-- Real-time data sync 🔄  
-
----
-
-## 📸 UI Preview
 
 <p align="center">
   <img src="Screenshot 2026-05-16 143346.png" width="550" style="border-radius:16px; box-shadow:0px 8px 25px rgba(0,0,0,0.3);" />
